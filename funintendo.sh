@@ -24,7 +24,7 @@ for url in "${urls[@]}"; do
 done
 
 # Get Wiiware and virtual console
-exclude _Clean/ and _Dangerous/
+# exclude _Clean/ and _Dangerous/
 wget -m -c -np -nH -R "index.html*" \
      --reject-regex "/_[^/]+/" \
      -e robots=off \
