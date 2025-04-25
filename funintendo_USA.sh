@@ -29,7 +29,7 @@ else
   accept_patterns=""
 fi
 
-# ====== Download Main URLs ======
+# # ====== Download Main URLs ======
 # Loop over the array and download each
 for url in "${urls[@]}"; do
   if [[ -n "$accept_patterns" ]]; then
@@ -40,11 +40,11 @@ for url in "${urls[@]}"; do
 done
 
 # ====== WiiWare & Virtual Console ======
-# # Base URL
+# Base URL
 wiiware_url="https://repo.mariocube.com/WADs/_WiiWare,%20VC,%20DLC,%20Channels%20&%20IOS/"
 
 # Common wget options
-common_wget_opts="-m -c -np -nH -R index.html* --reject-regex=/_[^/]+/ -e robots=off"
+common_wget_opts="-m -r -l 0 -c -np -nH -R index.html* --reject-regex='/_[^/]+/' -e robots=off"
 
 # Define accept patterns if usa_only is enabled
 if [[ "$usa_only" -eq 1 ]]; then
